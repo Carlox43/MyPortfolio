@@ -73,7 +73,7 @@ const ContactForm = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white"
+      className="py-20 bg-gray-900 dark:bg-gray-900 text-gray-800 dark:text-white"
     >
       <div className="max-w-7xl mx-auto px-4">
         <div
@@ -82,7 +82,13 @@ const ContactForm = () => {
             isContentVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <h2 className="text-3xl font-bold mb-8 text-center">Contact Me</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-indigo-400 to-purple-400">
+            Contact Me
+          </h2>
+          <p className="text-center text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            Si quieres contactarme, llena este formulario y te responderé
+            enseguida.
+          </p>
           <form
             role="form"
             aria-labelledby="contact-form"
@@ -103,7 +109,7 @@ const ContactForm = () => {
               onChange={handleChange}
               id="name"
               placeholder="Your Name"
-              className="w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm"
+              className="w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
               required
             />
 
@@ -117,7 +123,7 @@ const ContactForm = () => {
               onChange={handleChange}
               id="email"
               placeholder="Your Email"
-              className="w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm"
+              className="w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
               required
             />
 
@@ -130,13 +136,13 @@ const ContactForm = () => {
               onChange={handleChange}
               id="message"
               placeholder="Your Message"
-              className="w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm"
+              className="w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
               required
             />
 
             <button
               type="submit"
-              className="w-full p-4 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-md"
+              className="w-full p-4 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-md"
             >
               Send Message
             </button>

@@ -8,7 +8,7 @@ const Skill = () => {
     if (!element) return;
 
     const rect = element.getBoundingClientRect();
-    setIsContentVisible(rect.top >= 0 && rect.bottom <= window.innerHeight);
+    setIsContentVisible(rect.top <= window.innerHeight && rect.bottom >= 0);
   };
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Skill = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-72 bg-gray-900 text-white">
+    <section id="skills" className="py-32 bg-gray-900 text-white">
       <div
         id="skills-content"
         className={`max-w-7xl mx-auto px-4 transition-opacity duration-1000 ${
@@ -29,7 +29,7 @@ const Skill = () => {
         }`}
       >
         <h2 className="py-1 text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-indigo-400 to-purple-400">
-          Technologies I Use
+          Tecnologías que uso
         </h2>
         <div className="flex flex-wrap justify-center items-center gap-10">
           {/* JavaScript */}
@@ -100,6 +100,36 @@ const Skill = () => {
               className="w-20 h-20 mb-3 transform hover:scale-110 transition duration-300"
             />
             <p className="text-lg text-gray-300">TypeScript</p>
+          </div>
+
+          {/* Figma */}
+          <div className="flex flex-col items-center">
+            <img
+              src="https://www.svgrepo.com/show/452202/figma.svg"
+              alt="Figma"
+              className="w-20 h-20 mb-3 transform hover:scale-110 transition duration-300"
+            />
+            <p className="text-lg text-gray-300">Figma</p>
+          </div>
+
+          {/* Slack */}
+          <div className="flex flex-col items-center">
+            <img
+              src="https://www.svgrepo.com/show/452102/slack.svg"
+              alt="Slack"
+              className="w-20 h-20 mb-3 transform hover:scale-110 transition duration-300"
+            />
+            <p className="text-lg text-gray-300">Slack</p>
+          </div>
+
+          {/* npm */}
+          <div className="flex flex-col items-center">
+            <img
+              src="https://www.svgrepo.com/show/452077/npm.svg"
+              alt="npm"
+              className="w-20 h-20 mb-3 transform hover:scale-110 transition duration-300"
+            />
+            <p className="text-lg text-gray-300">npm</p>
           </div>
         </div>
       </div>
