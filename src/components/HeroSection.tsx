@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { TextEffectProps } from "../types/textEffect"; // Importar el tipo
+import { TextEffectProps } from "../types/TextEffect"; // Importar el tipo
 
 // Componente de animación de texto por caracteres
 const TextEffect: React.FC<TextEffectProps> = ({
