@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import Coding from "../assets/coding.png";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -36,10 +36,8 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lastScrollY, isMobileMenuOpen]); // Agregar `isMobileMenuOpen` a las dependencias
+  }, [lastScrollY, isMobileMenuOpen]);
 
-  // Función para cerrar el menú móvil cuando se seleccione una opción
   const handleMenuItemClick = () => {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
@@ -57,7 +55,7 @@ const Navbar = () => {
       <nav
         className={`fixed w-full bg-gray-900 text-white px-6 py-4 shadow-md z-10 transition-transform duration-500 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
-        }`}
+        } z-20`}
       >
         <div
           className={`max-w-7xl mx-auto flex justify-between items-center transition-opacity duration-1000 ${
@@ -66,78 +64,52 @@ const Navbar = () => {
               : "opacity-0 translate-y-4"
           }`}
         >
-          {/* Nombre o Logo */}
-          <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 shadow-blue-500">
-            Carlos Salazar
+          {/* Nombre o Logo con espacio para el icono */}
+          <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 shadow-blue-500 flex items-center">
+            {/* Imagen PNG como ícono */}
+            <img src={Coding} alt="icon-Coding" className="h-8 w-8 mr-2" />
+            CarloxDev
           </h1>
 
           {/* Links Centrados */}
           <ul className="hidden md:flex space-x-6 text-lg">
             <li>
               <a
-                href="#projects"
-                className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
-                onClick={handleMenuItemClick} // Cierra el menú al hacer clic
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
                 href="#about"
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
-                onClick={handleMenuItemClick} // Cierra el menú al hacer clic
+                onClick={handleMenuItemClick}
               >
-                About Me
+                About me
               </a>
             </li>
             <li>
               <a
                 href="#skills"
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
-                onClick={handleMenuItemClick} // Cierra el menú al hacer clic
+                onClick={handleMenuItemClick}
               >
                 Skills
               </a>
             </li>
             <li>
               <a
+                href="#projects"
+                className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
+                onClick={handleMenuItemClick}
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a
                 href="#contact"
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
-                onClick={handleMenuItemClick} // Cierra el menú al hacer clic
+                onClick={handleMenuItemClick}
               >
                 Contact Me
               </a>
             </li>
           </ul>
-
-          {/* Redes Sociales */}
-          <div className="hidden md:flex space-x-4">
-            <a
-              href="https://github.com/Carlox43"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xl shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
-            >
-              <FaGithub />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/carlos-jos%C3%A9-salazar-%C3%A1vila-509a692b1?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BHybg5rRSSPSHgN9fcbqpdQ%3D%3D"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xl shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
-            >
-              <FaLinkedin />
-            </a>
-            <a
-              href="https://www.instagram.com/carlox_salavila/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xl shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
-            >
-              <FaInstagram />
-            </a>
-          </div>
 
           {/* Botón para móvil */}
           <button
@@ -150,39 +122,42 @@ const Navbar = () => {
 
         {/* Menú para móvil */}
         {isMobileMenuOpen && (
-          <ul className="md:hidden mt-4 flex flex-col space-y-4 text-lg">
-            <li>
-              <a
-                href="#projects"
-                className="block px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition"
-                onClick={handleMenuItemClick} // Cierra el menú al hacer clic
-              >
-                Projects
-              </a>
-            </li>
+          <ul
+            className="md:hidden mt-4 flex flex-col space-y-4 text-lg"
+            style={{ zIndex: 100 }} // Aseguramos que el menú tenga un z-index más alto
+          >
             <li>
               <a
                 href="#about"
                 className="block px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition"
-                onClick={handleMenuItemClick} // Cierra el menú al hacer clic
+                onClick={handleMenuItemClick}
               >
-                About Me
+                About me
               </a>
             </li>
             <li>
               <a
                 href="#skills"
                 className="block px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition"
-                onClick={handleMenuItemClick} // Cierra el menú al hacer clic
+                onClick={handleMenuItemClick}
               >
                 Skills
               </a>
             </li>
             <li>
               <a
+                href="#projects"
+                className="block px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition"
+                onClick={handleMenuItemClick}
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a
                 href="#contact"
                 className="block px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition"
-                onClick={handleMenuItemClick} // Cierra el menú al hacer clic
+                onClick={handleMenuItemClick}
               >
                 Contact Me
               </a>

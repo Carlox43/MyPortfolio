@@ -6,12 +6,14 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import DisappearOnScroll from "./components/DisappearOnscroll";
 import Skill from "./components/Skill";
+import SocialLinks from "./components/SocialLinks";
 
 const App = () => (
   <>
     <div className="min-h-screen">
       <DisappearOnScroll>
         <Navbar />
+        <SocialLinks />
         <HeroSection />
         <About />
         <Skill />

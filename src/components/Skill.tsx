@@ -22,7 +22,7 @@ const Skill = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-24 bg-gray-900 text-white">
+    <section id="skills" className="py-20 bg-gray-900 text-white">
       <div
         id="skills-content"
         className={`max-w-7xl mx-auto px-4 flex flex-wrap justify-center items-center gap-10 transition-transform transition-opacity duration-1000 ease-out ${
@@ -33,7 +33,7 @@ const Skill = () => {
       >
         {/* Título general */}
         <div className="w-full text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-indigo-400 to-purple-400 leading-tight">
+          <h2 className="py-2 text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-indigo-400 to-purple-400 leading-tight">
             Habilidades y tecnologías que uso
           </h2>
           <p className="text-lg text-gray-300 mt-4">
@@ -154,6 +154,15 @@ const Skill = () => {
                 className="w-20 h-20 mb-3 transform hover:scale-110 transition duration-300"
               />
               <p className="text-lg text-gray-300">Npm</p>
+            </div>
+            {/* Vite */}
+            <div className="flex flex-col items-center">
+              <img
+                src="https://www.svgrepo.com/show/374167/vite.svg"
+                alt="Vite"
+                className="w-20 h-20 mb-3 transform hover:scale-110 transition duration-300"
+              />
+              <p className="text-lg text-gray-300">Vite</p>
             </div>
           </div>
         </div>

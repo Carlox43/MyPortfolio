@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { TextEffectProps } from "../types/TextEffect"; // Importar el tipo
+import FotoHeroselector from "../assets/fotoHeroselector.webp";
 
 // Componente de animación de texto por caracteres
 const TextEffect: React.FC<TextEffectProps> = ({
@@ -63,14 +64,13 @@ const HeroSection: React.FC = () => {
     <section
       className="min-h-screen flex items-center justify-center bg-gray-900 text-white px-4 relative z-0" /* z-0 aquí asegura que HeroSection no interfiera con el Navbar */
       style={{
-        backgroundImage:
-          'url("https://images.pexels.com/photos/16018144/pexels-photo-16018144/free-photo-of-tecnologia-varano-varanus-vigilante.jpeg")',
+        backgroundImage: `url(${FotoHeroselector})`, // Cambié aquí para usar la imagen local
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
       {/* Capa opaca de fondo */}
-      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>{" "}
+      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
       {/* Esta capa está debajo del texto */}
       {/* Contenedor de texto */}
       <div
@@ -116,7 +116,7 @@ const HeroSection: React.FC = () => {
             }}
             className="py-2 text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-indigo-400 to-purple-400"
           >
-            ¡Hola!, Soy Carlos Salazar.
+            ¡Hola!, Soy CarloxDev.
           </TextEffect>
 
           {/* Aplicar animación en p después de que el h1 termine */}
