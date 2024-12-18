@@ -6,18 +6,30 @@ import caloriesTraker from "../assets/Contador de calorias.png";
 
 const Projects = () => {
   const [isContentVisible, setIsContentVisible] = useState(false);
+  const [visibleProjects, setVisibleProjects] = useState<boolean[]>([]);
 
   const handleScroll = () => {
-    const element = document.getElementById("projects-content");
-    if (!element) return;
+    const sectionElement = document.getElementById("projects-content");
+    if (sectionElement) {
+      const rect = sectionElement.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      setIsContentVisible(isVisible);
+    }
 
-    const rect = element.getBoundingClientRect();
-    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-    setIsContentVisible(isVisible);
+    const projectElements = document.querySelectorAll(".project-item");
+    projectElements.forEach((element, index) => {
+      const rect = element.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      setVisibleProjects((prevState) => {
+        const updatedState = [...prevState];
+        updatedState[index] = isVisible;
+        return updatedState;
+      });
+    });
   };
 
   useEffect(() => {
+    setVisibleProjects(new Array(4).fill(false)); // Inicializar con tantos proyectos como haya
     window.addEventListener("scroll", handleScroll);
     handleScroll();
 
@@ -48,7 +60,6 @@ const Projects = () => {
       image: calculadoraConsumo,
       link: "https://calculadora-propina-lake.vercel.app/",
     },
-
     {
       title: "Contador de Calorias",
       description:
@@ -59,10 +70,10 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-60 bg-gray-900 text-white">
+    <section id="projects" className="py-24 bg-gray-900 text-white">
       <div
         id="projects-content"
-        className={`max-w-5xl mx-auto px-4 text-center transition-opacity duration-1000 ${
+        className={`max-w-5xl mx-auto px-4 text-center transition-opacity duration-1000 ease-out ${
           isContentVisible ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -73,7 +84,11 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gray-700 rounded-lg overflow-hidden shadow-md mx-auto shadow-indigo-400 flex flex-col"
+              className={`project-item bg-gray-700 rounded-lg overflow-hidden shadow-md mx-auto shadow-indigo-400 flex flex-col transition-transform duration-1000 ease-out ${
+                visibleProjects[index]
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
               style={{ minHeight: "380px" }}
             >
               <a href={project.link} target="_blank" rel="noopener noreferrer">

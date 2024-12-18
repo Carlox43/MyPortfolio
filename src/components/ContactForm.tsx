@@ -8,7 +8,8 @@ const ContactForm = () => {
     message: "",
   });
   const [status, setStatus] = useState("");
-  const [isContentVisible, setIsContentVisible] = useState(true);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+  const [visibleFields, setVisibleFields] = useState<boolean[]>([]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -54,14 +55,27 @@ const ContactForm = () => {
   };
 
   const handleScroll = () => {
-    const element = document.getElementById("contact-content");
-    if (!element) return;
+    const sectionElement = document.getElementById("contact-content");
+    if (sectionElement) {
+      const rect = sectionElement.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      setIsContentVisible(isVisible);
+    }
 
-    const rect = element.getBoundingClientRect();
-    setIsContentVisible(rect.top >= 0 && rect.bottom <= window.innerHeight);
+    const fieldElements = document.querySelectorAll(".form-field");
+    fieldElements.forEach((element, index) => {
+      const rect = element.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      setVisibleFields((prevState) => {
+        const updatedState = [...prevState];
+        updatedState[index] = isVisible;
+        return updatedState;
+      });
+    });
   };
 
   useEffect(() => {
+    setVisibleFields(new Array(3).fill(false)); // Inicializar para 3 campos (nombre, email, mensaje)
     window.addEventListener("scroll", handleScroll);
     handleScroll();
 
@@ -78,7 +92,7 @@ const ContactForm = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div
           id="contact-content"
-          className={`transition-opacity duration-1000 ${
+          className={`transition-opacity duration-1000 ease-out ${
             isContentVisible ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -109,7 +123,11 @@ const ContactForm = () => {
               onChange={handleChange}
               id="name"
               placeholder="Your Name"
-              className="w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
+              className={`form-field w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition-transform duration-1000 ease-out ${
+                visibleFields[0]
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
               required
             />
 
@@ -123,7 +141,11 @@ const ContactForm = () => {
               onChange={handleChange}
               id="email"
               placeholder="Your Email"
-              className="w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
+              className={`form-field w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition-transform duration-1000 ease-out ${
+                visibleFields[1]
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
               required
             />
 
@@ -136,7 +158,11 @@ const ContactForm = () => {
               onChange={handleChange}
               id="message"
               placeholder="Your Message"
-              className="w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
+              className={`form-field w-full p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition-transform duration-1000 ease-out ${
+                visibleFields[2]
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
               required
             />
 

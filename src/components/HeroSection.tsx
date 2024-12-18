@@ -116,7 +116,7 @@ const HeroSection: React.FC = () => {
             }}
             className="py-2 text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-indigo-400 to-purple-400"
           >
-            !Hola¡, Soy Carlos Salazar.
+            ¡Hola!, Soy Carlos Salazar.
           </TextEffect>
 
           {/* Aplicar animación en p después de que el h1 termine */}
