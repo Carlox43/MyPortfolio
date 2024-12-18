@@ -2,11 +2,9 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const SocialLinks = () => {
   return (
-    <div className="fixed top-1/3 left-0 flex flex-col items-center space-y-4 z-10">
-      {" "}
+    <div className="fixed bottom-4 right-4 flex flex-col items-center space-y-4 z-10">
       {/* Ventana flotante vertical */}
-      <div className="bg-gray-800 text-white rounded-lg shadow-lg p-2 flex flex-col items-center space-y-4">
-        {" "}
+      <div className="bg-transparent text-white rounded-lg shadow-lg p-2 flex flex-col items-center space-y-4">
         {/* Caja contenedora */}
         {/* LinkedIn */}
         <a
