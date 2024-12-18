@@ -28,7 +28,7 @@ const Footer = () => {
             href="https://github.com/Carlox43"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-gray-400"
+            className="hover:text-teal-400"
           >
             <FaGithub size={24} />
           </a>
