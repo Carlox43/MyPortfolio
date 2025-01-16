@@ -97,7 +97,7 @@ const ContactForm = () => {
           }`}
         >
           <h2 className="text-3xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-indigo-400 to-purple-400">
-            Contact Me
+            ¡Contactame!
           </h2>
           <p className="text-center text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
             Si quieres contactarme, llena este formulario y te responderé

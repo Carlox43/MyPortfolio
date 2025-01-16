@@ -53,9 +53,7 @@ const About = () => {
             venezolano, al que le gusta cocinar, desarrollar aplicaciones web y
             leer de vez en cuando. Soy alguien comprometido, con metas fijas a
             futuro, sociable y con ganas de conocer a muchas personas en el
-            camino. Mi camino como programador comenzó a principios de enero de
-            este año, 2024, cuando pude entrar a este maravilloso mundo de la
-            programación.
+            camino.
           </p>
         </div>
       </div>

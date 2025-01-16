@@ -43,7 +43,7 @@ const Navbar = () => {
       setIsMobileMenuOpen(false);
     }
   };
-
+  // Descargar pdf
   return (
     <>
       {/* Barra de progreso */}
@@ -79,7 +79,7 @@ const Navbar = () => {
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
                 onClick={handleMenuItemClick}
               >
-                About me
+                Mi perfil
               </a>
             </li>
             <li>
@@ -88,7 +88,7 @@ const Navbar = () => {
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
                 onClick={handleMenuItemClick}
               >
-                Skills
+                Habilidades
               </a>
             </li>
             <li>
@@ -97,7 +97,7 @@ const Navbar = () => {
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
                 onClick={handleMenuItemClick}
               >
-                Projects
+                Proyectos
               </a>
             </li>
             <li>
@@ -106,7 +106,17 @@ const Navbar = () => {
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
                 onClick={handleMenuItemClick}
               >
-                Contact Me
+                ¡Contactame!
+              </a>
+            </li>
+            <li>
+              <a
+                href="/src/assets/Curriculum-Carlos-Salazar.pdf"
+                className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
+                onClick={handleMenuItemClick}
+                download="Curriculum-Carlos-Salazar.pdf"
+              >
+                Descrgar cv
               </a>
             </li>
           </ul>
@@ -132,7 +142,7 @@ const Navbar = () => {
                 className="block px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition"
                 onClick={handleMenuItemClick}
               >
-                About me
+                Mi perfil
               </a>
             </li>
             <li>
@@ -141,7 +151,7 @@ const Navbar = () => {
                 className="block px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition"
                 onClick={handleMenuItemClick}
               >
-                Skills
+                Habilidades
               </a>
             </li>
             <li>
@@ -150,7 +160,7 @@ const Navbar = () => {
                 className="block px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition"
                 onClick={handleMenuItemClick}
               >
-                Projects
+                Proyectos
               </a>
             </li>
             <li>
@@ -159,7 +169,17 @@ const Navbar = () => {
                 className="block px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition"
                 onClick={handleMenuItemClick}
               >
-                Contact Me
+                ¡Contactame!
+              </a>
+            </li>
+            <li>
+              <a
+                href="/src/assets/Curriculum-Carlos-Salazar.pdf"
+                className="block px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition"
+                onClick={handleMenuItemClick}
+                download="Curriculum-Carlos-Salazar.pdf"
+              >
+                Descargar cv
               </a>
             </li>
           </ul>
