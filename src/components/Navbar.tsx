@@ -8,6 +8,7 @@ const Navbar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleScroll = () => {
     if (isMobileMenuOpen) return; // Evita ocultar el navbar si el menú está abierto
 
@@ -36,13 +37,13 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollY, isMobileMenuOpen]);
+  }, [lastScrollY, isMobileMenuOpen, handleScroll]);
 
-  const handleMenuItemClick = () => {
+  function handleMenuItemClick() {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
     }
-  };
+  }
   // Descargar pdf
   return (
     <>
