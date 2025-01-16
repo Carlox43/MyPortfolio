@@ -116,7 +116,7 @@ const Navbar = () => {
                 onClick={handleMenuItemClick}
                 download="Curriculum-Carlos-Salazar.pdf"
               >
-                Descrgar cv
+                Descargar cv
               </a>
             </li>
           </ul>
