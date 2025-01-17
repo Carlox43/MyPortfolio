@@ -112,12 +112,12 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="/src/assets/Curriculum-Carlos-Salazar.pdf"
+                href="/public/Curriculum-Carlos-Salazar.pdf"
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
                 onClick={handleMenuItemClick}
                 download="Curriculum-Carlos-Salazar.pdf"
               >
-                Descargar cv
+                curriculum
               </a>
             </li>
           </ul>
@@ -175,12 +175,12 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="/src/assets/Curriculum-Carlos-Salazar.pdf"
+                href="/public/Curriculum-Carlos-Salazar.pdf"
                 className="block px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition"
                 onClick={handleMenuItemClick}
                 download="Curriculum-Carlos-Salazar.pdf"
               >
-                Descargar cv
+                curriculum
               </a>
             </li>
           </ul>
