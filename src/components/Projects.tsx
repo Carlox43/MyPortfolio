@@ -3,6 +3,8 @@ import controlGastos from "../assets/controlGastos.png";
 import calculadoraConsumo from "../assets/calculadoraConsumo.png";
 import GuitarLa from "../assets/GuitarLa.png";
 import caloriesTraker from "../assets/Contador de calorias.png";
+import Pascientes from "../assets/Pascientes.png";
+import ClimaApi from "../assets/ApiClima.png";
 
 const Projects = () => {
   const [isContentVisible, setIsContentVisible] = useState(false);
@@ -42,30 +44,44 @@ const Projects = () => {
     {
       title: "GuitarLA TypeScript",
       description:
-        "Primer proyecto: Al entrar al mundo de React y typeScript elabore una pagina web de guitarra como si fuera una tienda en linea",
+        "Proyecto n.º 1: Al entrar al mundo de React y TypeScript, elaboré una página web de guitarras como si fuera una tienda en línea.",
       image: GuitarLa,
       link: "https://guitar-la-type-script-alpha.vercel.app/",
     },
     {
       title: "Control de Gastos",
       description:
-        "Segundo Proyecto: Aplicación para administrar y controlar tus gastos de manera eficiente.",
+        "Proyecto n.º 2: Aplicación para administrar y controlar tus gastos de manera eficiente.",
       image: controlGastos,
       link: "https://control-de-gastos-bice.vercel.app/",
     },
     {
       title: "Calculadora de Propina",
       description:
-        "Tercer Proyecto: Herramienta simple y efectiva para calcular propinas.",
+        "Proyecto n.º 3: Herramienta simple y efectiva para calcular propinas.",
       image: calculadoraConsumo,
       link: "https://calculadora-propina-lake.vercel.app/",
     },
     {
-      title: "Contador de Calorias",
+      title: "Contador de Calorías",
       description:
-        "Cuarto Proyecto: Contador efectivo para un control de salud y calorias",
+        "Proyecto n.º 4: Contador efectivo para un control de salud y calorías.",
       image: caloriesTraker,
       link: "https://contador-calorias-gamma.vercel.app/",
+    },
+    {
+      title: "Pacientes",
+      description:
+        "Proyecto n.º 5: Un control para mascotas con su respectivo formulario.",
+      image: Pascientes,
+      link: "https://pascientes-zustand.vercel.app/",
+    },
+    {
+      title: "API de Clima",
+      description:
+        "Proyecto n.º 6: API de clima para consultar el estado del clima de algunos países.",
+      image: ClimaApi,
+      link: "https://clima-api-mu.vercel.app/",
     },
   ];
 
