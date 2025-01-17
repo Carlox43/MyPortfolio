@@ -38,7 +38,7 @@ const About = () => {
           <img
             src={FotoAbout}
             alt="Your Name"
-            className="w-full h-full object-cover brightness-90"
+            className="w-full h-auto object-cover"
           />
         </div>
 
