@@ -114,7 +114,6 @@ const Navbar = () => {
               <a
                 href="/CurriculumCarlosSalazar.pdf"
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-md hover:from-teal-400 hover:to-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105"
-                onClick={handleMenuItemClick}
                 download="CurriculumCarlosSalazar.pdf"
               >
                 curriculum
