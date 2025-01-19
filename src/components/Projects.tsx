@@ -5,6 +5,7 @@ import GuitarLa from "../assets/GuitarLa.png";
 import caloriesTraker from "../assets/Contador de calorias.png";
 import Pascientes from "../assets/Pascientes.png";
 import ClimaApi from "../assets/ApiClima.png";
+import CriptoApp from "../assets/CriptoApp.jpg";
 
 const Projects = () => {
   const [isContentVisible, setIsContentVisible] = useState(false);
@@ -82,6 +83,13 @@ const Projects = () => {
         "Proyecto n.º 6: API de clima para consultar el estado del clima de algunos países.",
       image: ClimaApi,
       link: "https://clima-api-mu.vercel.app/",
+    },
+    {
+      title: "CriptoApp",
+      description:
+        "Proyecto n.º 7: Api para saber el valor de cripto Monedas con el precio actual.",
+      image: CriptoApp,
+      link: "https://cripto-app-five.vercel.app/",
     },
   ];
 
