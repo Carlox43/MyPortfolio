@@ -2,7 +2,10 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,viewport-fit=cover"
+    />
     <title>Portafolio Desarrollador Web</title>
     <link
       rel="stylesheet"
@@ -20,7 +23,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-
+    <link rel="stylesheet" href="./src/reset.css" />
     <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
@@ -33,17 +36,22 @@
     <nav class="navbar">
       <div class="navbar-container">
         <a href="#home" class="logo">Portafolio<span>Dev</span></a>
+        <div class="nav-links">
+          <a href="#about" data-i18n="about">Sobre Mí</a>
+          <a href="#projects" data-i18n="projects">Proyectos</a>
+          <a href="#skills" data-i18n="skills">Habilidades</a>
+          <a href="#contact" data-i18n="contact">Contacto</a>
+        </div>
+        <div>
+          <button class="theme-toggle" aria-label="Cambiar tema">
+            <i class="fas fa-adjust"></i>
+          </button>
+          <button class="language-toggle" aria-label="Cambiar idioma">
+            <span class="language-text">EN</span>
+          </button>
+        </div>
         <button class="hamburger" aria-label="Menú">
           <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links">
-          <a href="#about">Sobre Mí</a>
-          <a href="#projects">Proyectos</a>
-          <a href="#skills">Habilidades</a>
-          <a href="#contact">Contacto</a>
-        </div>
-        <button class="theme-toggle" aria-label="Cambiar tema">
-          <i class="fas fa-adjust"></i>
         </button>
       </div>
     </nav>
@@ -52,15 +60,21 @@
     <section class="hero" id="home">
       <div class="hero-particles" id="particles-js"></div>
       <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-        <h1>Hola, soy <span class="highlight">Carlos Salazar</span></h1>
-        <p>
+        <h1 data-i18n="heroTitle">
+          Hola, soy <span class="highlight">Carlos Salazar</span>
+        </h1>
+        <p data-i18n="heroSubtitle">
           Desarrollador web Full Stack especializado en crear experiencias web
           increíbles y funcionales. Con más de 2 años de experiencia
           construyendo aplicaciones web modernas y responsivas.
         </p>
         <div class="cta-buttons">
-          <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
-          <a href="#contact" class="btn btn-secondary">Contactarme</a>
+          <a href="#projects" class="btn btn-primary" data-i18n="viewProjects"
+            >Ver Proyectos</a
+          >
+          <a href="#contact" class="btn btn-secondary" data-i18n="contactMe"
+            >Contactarme</a
+          >
         </div>
         <div class="social-icons">
           <a
@@ -77,7 +91,6 @@
           >
             <i class="fab fa-linkedin"></i>
           </a>
-          </a>
         </div>
       </div>
     </section>
@@ -85,8 +98,15 @@
     <!-- About Section -->
     <section class="about" id="about">
       <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Sobre Mí</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="section-title" data-aos="fade-up" data-i18n="aboutTitle">
+          Sobre Mí
+        </h2>
+        <p
+          class="section-subtitle"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-i18n="aboutSubtitle"
+        >
           Conoce un poco más sobre mí y mi trayectoria profesional
         </p>
 
@@ -108,14 +128,14 @@
             data-aos="fade-left"
             data-aos-duration="1000"
           >
-            <h3>Desarrollador Web Full Stack</h3>
-            <p>
+            <h3 data-i18n="aboutRole">Desarrollador Web Full Stack</h3>
+            <p data-i18n="aboutText1">
               Soy un apasionado desarrollador web con más de 2 años de
               experiencia creando soluciones digitales. Mi objetivo es construir
               aplicaciones web que no solo sean visualmente atractivas, sino
               también altamente funcionales y con un rendimiento óptimo.
             </p>
-            <p>
+            <p data-i18n="aboutText2">
               Me especializo en JavaScript moderno, React, Node.js y bases de
               datos tanto SQL como NoSQL. Disfruto resolviendo problemas
               complejos y aprendiendo continuamente sobre nuevas tecnologías
@@ -124,11 +144,13 @@
             <div class="about-info">
               <div class="info-item">
                 <div class="number">2</div>
-                <div class="text">Años de experiencia</div>
+                <div class="text" data-i18n="yearsExp">Años de experiencia</div>
               </div>
               <div class="info-item">
                 <div class="number">10</div>
-                <div class="text">Proyectos completados</div>
+                <div class="text" data-i18n="projectsCompleted">
+                  Proyectos completados
+                </div>
               </div>
             </div>
           </div>
@@ -139,8 +161,15 @@
     <!-- Projects Section -->
     <section class="projects" id="projects">
       <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Mis Proyectos</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="section-title" data-aos="fade-up" data-i18n="projectsTitle">
+          Mis Proyectos
+        </h2>
+        <p
+          class="section-subtitle"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-i18n="projectsSubtitle"
+        >
           Estos son algunos de los proyectos en los que he trabajado
           recientemente
         </p>
@@ -149,15 +178,13 @@
           <!-- Proyecto 1 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="100">
             <div class="project-img">
-              <img
-                src="./public/proyecto8.webp"
-                alt="Myportfolio"
-              />
+              <img src="./public/proyecto8.webp" alt="Myportfolio" />
             </div>
             <div class="project-content">
               <h3 class="project-title">MyPortfolio</h3>
-              <p class="project-description">
-                Sitio web donde presento mis proyectos, habilidades y experiencia como desarrollador Full-Stack.
+              <p class="project-description" data-i18n="project1Desc">
+                Sitio web donde presento mis proyectos, habilidades y
+                experiencia como desarrollador Full-Stack.
               </p>
               <div class="project-stack">
                 <span class="stack-item">CSS</span>
@@ -167,10 +194,12 @@
               </div>
               <div class="project-links">
                 <a href="https://carloxdev.vercel.app/"
-                  ><i class="fas fa-globe"></i> Demo</a
+                  ><i class="fas fa-globe"></i>
+                  <span data-i18n="demo">Demo</span></a
                 >
                 <a href="https://github.com/Carlox43/MyPortfolio"
-                  ><i class="fab fa-github"></i> Código</a
+                  ><i class="fab fa-github"></i>
+                  <span data-i18n="code">Código</span></a
                 >
               </div>
             </div>
@@ -179,15 +208,13 @@
           <!-- Proyecto 2 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="100">
             <div class="project-img">
-              <img
-                src="./public/proyecto1.webp"
-                alt="GuitarLA"
-              />
+              <img src="./public/proyecto1.webp" alt="GuitarLA" />
             </div>
             <div class="project-content">
               <h3 class="project-title">GuitarLA</h3>
-              <p class="project-description">
-                Una página web de guitarras creada como proyecto de programación, con un diseño simple y funcional.
+              <p class="project-description" data-i18n="project2Desc">
+                Una página web de guitarras creada como proyecto de
+                programación, con un diseño simple y funcional.
               </p>
               <div class="project-stack">
                 <span class="stack-item">React</span>
@@ -197,10 +224,12 @@
               </div>
               <div class="project-links">
                 <a href="https://guitarla-proyect.vercel.app/"
-                  ><i class="fas fa-globe"></i> Demo</a
+                  ><i class="fas fa-globe"></i>
+                  <span data-i18n="demo">Demo</span></a
                 >
                 <a href="https://github.com/Carlox43/GuitarLa-typeScript"
-                  ><i class="fab fa-github"></i> Código</a
+                  ><i class="fab fa-github"></i>
+                  <span data-i18n="code">Código</span></a
                 >
               </div>
             </div>
@@ -216,8 +245,9 @@
             </div>
             <div class="project-content">
               <h3 class="project-title">Calculadora de Propinas</h3>
-              <p class="project-description">
-                Calculadora de propinas sencilla y rápida para ayudarte a dividir la cuenta y calcular el porcentaje adecuado.
+              <p class="project-description" data-i18n="project3Desc">
+                Calculadora de propinas sencilla y rápida para ayudarte a
+                dividir la cuenta y calcular el porcentaje adecuado.
               </p>
               <div class="project-stack">
                 <span class="stack-item">React</span>
@@ -227,10 +257,12 @@
               </div>
               <div class="project-links">
                 <a href="https://calculadora-propina-lake.vercel.app/"
-                  ><i class="fas fa-globe"></i> Demo</a
+                  ><i class="fas fa-globe"></i>
+                  <span data-i18n="demo">Demo</span></a
                 >
                 <a href="https://github.com/Carlox43/Calculadora-Propina.git"
-                  ><i class="fab fa-github"></i> Código</a
+                  ><i class="fab fa-github"></i>
+                  <span data-i18n="code">Código</span></a
                 >
               </div>
             </div>
@@ -239,15 +271,13 @@
           <!-- Proyecto 4 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="300">
             <div class="project-img">
-              <img
-                src="./public/proyecto3.webp"
-                alt="Control-de-Gastos"
-              />
+              <img src="./public/proyecto3.webp" alt="Control-de-Gastos" />
             </div>
             <div class="project-content">
               <h3 class="project-title">Control de Gastos</h3>
-              <p class="project-description">
-                Herramienta simple para registrar y gestionar tus gastos, y llevar un mejor control de tus finanzas.
+              <p class="project-description" data-i18n="project4Desc">
+                Herramienta simple para registrar y gestionar tus gastos, y
+                llevar un mejor control de tus finanzas.
               </p>
               <div class="project-stack">
                 <span class="stack-item">React</span>
@@ -257,10 +287,12 @@
               </div>
               <div class="project-links">
                 <a href="https://control-de-gastos-bice.vercel.app/"
-                  ><i class="fas fa-globe"></i> Demo</a
+                  ><i class="fas fa-globe"></i>
+                  <span data-i18n="demo">Demo</span></a
                 >
                 <a href="https://github.com/Carlox43/Control-de-Gastos"
-                  ><i class="fab fa-github"></i> Código</a
+                  ><i class="fab fa-github"></i>
+                  <span data-i18n="code">Código</span></a
                 >
               </div>
             </div>
@@ -269,15 +301,13 @@
           <!-- Proyecto 5 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="400">
             <div class="project-img">
-              <img
-                src="./public/proyecto4.webp"
-                alt="Paciente-veterinario"
-              />
+              <img src="./public/proyecto4.webp" alt="Paciente-veterinario" />
             </div>
             <div class="project-content">
               <h3 class="project-title">Pasciente Veterinario</h3>
-              <p class="project-description">
-                Página para gestionar y registrar información de pacientes veterinarios de forma clara y sencilla.
+              <p class="project-description" data-i18n="project5Desc">
+                Página para gestionar y registrar información de pacientes
+                veterinarios de forma clara y sencilla.
               </p>
               <div class="project-stack">
                 <span class="stack-item">React</span>
@@ -287,10 +317,12 @@
               </div>
               <div class="project-links">
                 <a href="https://pascientes-zustand.vercel.app/"
-                  ><i class="fas fa-globe"></i> Demo</a
+                  ><i class="fas fa-globe"></i>
+                  <span data-i18n="demo">Demo</span></a
                 >
                 <a href="https://github.com/Carlox43/Pascientes-zustand"
-                  ><i class="fab fa-github"></i> Código</a
+                  ><i class="fab fa-github"></i>
+                  <span data-i18n="code">Código</span></a
                 >
               </div>
             </div>
@@ -299,15 +331,13 @@
           <!-- Proyecto 6 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="500">
             <div class="project-img">
-              <img
-                src="./public/proyecto5.webp"
-                alt="Clima-API"
-              />
+              <img src="./public/proyecto5.webp" alt="Clima-API" />
             </div>
             <div class="project-content">
               <h3 class="project-title">Clima</h3>
-              <p class="project-description">
-                Aplicación que muestra el clima en tiempo real utilizando una API, con un diseño claro y fácil de usar.
+              <p class="project-description" data-i18n="project6Desc">
+                Aplicación que muestra el clima en tiempo real utilizando una
+                API, con un diseño claro y fácil de usar.
               </p>
               <div class="project-stack">
                 <span class="stack-item">React</span>
@@ -318,10 +348,12 @@
               </div>
               <div class="project-links">
                 <a href="https://clima-api-mu.vercel.app/"
-                  ><i class="fas fa-globe"></i> Demo</a
+                  ><i class="fas fa-globe"></i>
+                  <span data-i18n="demo">Demo</span></a
                 >
                 <a href="https://github.com/Carlox43/Clima-Api"
-                  ><i class="fab fa-github"></i> Código</a
+                  ><i class="fab fa-github"></i>
+                  <span data-i18n="code">Código</span></a
                 >
               </div>
             </div>
@@ -330,15 +362,13 @@
           <!-- Proyecto 7 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="600">
             <div class="project-img">
-              <img
-                src="./public/proyecto6.webp"
-                alt="CriptoApp"
-              />
+              <img src="./public/proyecto6.webp" alt="CriptoApp" />
             </div>
             <div class="project-content">
               <h3 class="project-title">CriptoApp</h3>
-              <p class="project-description">
-                Aplicación para consultar precios y datos de criptomonedas en tiempo real usando una API.
+              <p class="project-description" data-i18n="project7Desc">
+                Aplicación para consultar precios y datos de criptomonedas en
+                tiempo real usando una API.
               </p>
               <div class="project-stack">
                 <span class="stack-item">React</span>
@@ -349,26 +379,27 @@
               </div>
               <div class="project-links">
                 <a href="https://cripto-app-five.vercel.app/"
-                  ><i class="fas fa-globe"></i> Demo</a
+                  ><i class="fas fa-globe"></i>
+                  <span data-i18n="demo">Demo</span></a
                 >
                 <a href="https://github.com/Carlox43/CriptoApp"
-                  ><i class="fab fa-github"></i> Código</a
+                  ><i class="fab fa-github"></i>
+                  <span data-i18n="code">Código</span></a
                 >
               </div>
             </div>
           </div>
+
           <!-- Proyecto 8 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="500">
             <div class="project-img">
-              <img
-                src="./public/proyecto7.webp"
-                alt="Contador-de-Calorias"
-              />
+              <img src="./public/proyecto7.webp" alt="Contador-de-Calorias" />
             </div>
             <div class="project-content">
               <h3 class="project-title">Contador de Calorias</h3>
-              <p class="project-description">
-                Aplicación web que permite registrar alimentos y calcular el total de calorías consumidas de forma sencilla y rápida.
+              <p class="project-description" data-i18n="project8Desc">
+                Aplicación web que permite registrar alimentos y calcular el
+                total de calorías consumidas de forma sencilla y rápida.
               </p>
               <div class="project-stack">
                 <span class="stack-item">React</span>
@@ -378,10 +409,12 @@
               </div>
               <div class="project-links">
                 <a href="https://clima-api-mu.vercel.app/"
-                  ><i class="fas fa-globe"></i> Demo</a
+                  ><i class="fas fa-globe"></i>
+                  <span data-i18n="demo">Demo</span></a
                 >
                 <a href="https://github.com/Carlox43/Clima-Api"
-                  ><i class="fab fa-github"></i> Código</a
+                  ><i class="fab fa-github"></i>
+                  <span data-i18n="code">Código</span></a
                 >
               </div>
             </div>
@@ -390,15 +423,14 @@
           <!-- Proyecto 9 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="500">
             <div class="project-img">
-              <img
-                src="./public/proyecto9.webp"
-                alt="Drinks"
-              />
+              <img src="./public/proyecto9.webp" alt="Drinks" />
             </div>
             <div class="project-content">
               <h3 class="project-title">Drinks</h3>
-              <p class="project-description">
-                Aplicación que permite buscar bebidas mediante una API y ofrece recomendaciones inteligentes gracias a la integración de inteligencia artificial.
+              <p class="project-description" data-i18n="project9Desc">
+                Aplicación que permite buscar bebidas mediante una API y ofrece
+                recomendaciones inteligentes gracias a la integración de
+                inteligencia artificial.
               </p>
               <div class="project-stack">
                 <span class="stack-item">React</span>
@@ -410,43 +442,28 @@
               </div>
               <div class="project-links">
                 <a href="https://drinks-omega.vercel.app/"
-                  ><i class="fas fa-globe"></i> Demo</a
+                  ><i class="fas fa-glowe"></i>
+                  <span data-i18n="demo">Demo</span></a
                 >
                 <a href="https://github.com/Carlox43/Drinks"
-                  ><i class="fab fa-github"></i> Código</a
+                  ><i class="fab fa-github"></i>
+                  <span data-i18n="code">Código</span></a
                 >
               </div>
             </div>
           </div>
+
           <!-- Proyecto 10 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="500">
             <div class="project-img">
-              <img
-                src=""
-                alt="desarrollo"
-              />
+              <img src="" alt="desarrollo" />
             </div>
             <div class="project-content">
               <h3 class="project-title">No disponible</h3>
-              <p class="project-description">
-                Este proyecto aún se encuentra en proceso de desarrollo. ¡Gracias por tu paciencia y por visitar mi portafolio!.
+              <p class="project-description" data-i18n="project10Desc">
+                Este proyecto aún se encuentra en proceso de desarrollo.
+                ¡Gracias por tu paciencia y por visitar mi portafolio!.
               </p>
-              <!-- <div class="project-stack">
-                <span class="stack-item">React</span>
-                <span class="stack-item">TailwindCSS</span>
-                <span class="stack-item">TypeScript</span>
-                <span class="stack-item">API</span>
-                <span class="stack-item">AI</span>
-                <span class="stack-item">Vite</span>
-              </div>
-              <div class="project-links">
-                <a href=""
-                  ><i class="fas fa-globe"></i> Demo</a
-                >
-                <a href=""
-                  ><i class="fab fa-github"></i> Código</a
-                >
-              </div> -->
             </div>
           </div>
         </div>
@@ -456,16 +473,22 @@
     <!-- Skills Section -->
     <section class="skills" id="skills">
       <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Mis Habilidades</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="section-title" data-aos="fade-up" data-i18n="skillsTitle">
+          Mis Habilidades
+        </h2>
+        <p
+          class="section-subtitle"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-i18n="skillsSubtitle"
+        >
           Estas son las tecnologías y herramientas que domino
         </p>
 
         <div class="skills-container">
           <!-- Frontend -->
           <div class="skills-category" data-aos="fade-up" data-aos-delay="200">
-            <h3>Frontend</h3>
-
+            <h3 data-i18n="frontend">Frontend</h3>
             <div class="skill-item">
               <div class="skill-info">
                 <span class="skill-name">HTML5/CSS3</span>
@@ -495,14 +518,11 @@
                 <div class="progress" data-width="85"></div>
               </div>
             </div>
-
-            
           </div>
 
           <!-- Backend -->
           <div class="skills-category" data-aos="fade-up" data-aos-delay="300">
-            <h3>Backend</h3>
-
+            <h3 data-i18n="backend">Backend</h3>
             <div class="skill-item">
               <div class="skill-info">
                 <span class="skill-name">Node.js</span>
@@ -526,8 +546,7 @@
 
           <!-- Databases -->
           <div class="skills-category" data-aos="fade-up" data-aos-delay="400">
-            <h3>Bases de Datos</h3>
-
+            <h3 data-i18n="databases">Bases de Datos</h3>
             <div class="skill-item">
               <div class="skill-info">
                 <span class="skill-name">MongoDB</span>
@@ -606,8 +625,15 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
       <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Contacto</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="section-title" data-aos="fade-up" data-i18n="contactTitle">
+          Contacto
+        </h2>
+        <p
+          class="section-subtitle"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-i18n="contactSubtitle"
+        >
           ¿Tienes un proyecto en mente? ¡Hablemos!
         </p>
 
@@ -617,8 +643,8 @@
             data-aos="fade-right"
             data-aos-duration="1000"
           >
-            <h3>Hablemos sobre tu proyecto</h3>
-            <p>
+            <h3 data-i18n="contactHeading">Hablemos sobre tu proyecto</h3>
+            <p data-i18n="contactText">
               Estoy interesado en oportunidades freelance y proyectos
               desafiantes. Si tienes una idea o necesitas ayuda con un proyecto
               existente, no dudes en contactarme.
@@ -634,7 +660,9 @@
                 <div class="contact-icon">
                   <i class="fas fa-map-marker-alt"></i>
                 </div>
-                <div class="contact-text">Buenos Aires, Argentina</div>
+                <div class="contact-text" data-i18n="location">
+                  Buenos Aires, Argentina
+                </div>
               </div>
             </div>
           </div>
@@ -646,26 +674,39 @@
           >
             <form id="contactForm">
               <div class="form-group">
-                <label for="name" class="form-label">Nombre</label>
+                <label for="name" class="form-label" data-i18n="name"
+                  >Nombre</label
+                >
                 <input type="text" id="name" class="form-control" required />
               </div>
 
               <div class="form-group">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label" data-i18n="email"
+                  >Email</label
+                >
                 <input type="email" id="email" class="form-control" required />
               </div>
 
               <div class="form-group">
-                <label for="subject" class="form-label">Asunto</label>
+                <label for="subject" class="form-label" data-i18n="subject"
+                  >Asunto</label
+                >
                 <input type="text" id="subject" class="form-control" required />
               </div>
 
               <div class="form-group">
-                <label for="message" class="form-label">Mensaje</label>
+                <label for="message" class="form-label" data-i18n="message"
+                  >Mensaje</label
+                >
                 <textarea id="message" class="form-control" required></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary" style="width: 100%">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="width: 100%"
+                data-i18n="sendMessage"
+              >
                 Enviar Mensaje
               </button>
             </form>
@@ -679,29 +720,37 @@
       <div class="container">
         <div class="footer-content">
           <h2 class="footer-logo">Portafolio<span>Dev</span></h2>
-          <p class="footer-text">
+          <p class="footer-text" data-i18n="footerText">
             Construyendo experiencias web increíbles, una línea de código a la
             vez.
           </p>
 
           <div class="footer-links">
-            <a href="#home" class="footer-link">Inicio</a>
-            <a href="#about" class="footer-link">Sobre Mí</a>
-            <a href="#projects" class="footer-link">Proyectos</a>
-            <a href="#skills" class="footer-link">Habilidades</a>
-            <a href="#contact" class="footer-link">Contacto</a>
+            <a href="#home" class="footer-link" data-i18n="home">Inicio</a>
+            <a href="#about" class="footer-link" data-i18n="about">Sobre Mí</a>
+            <a href="#projects" class="footer-link" data-i18n="projects"
+              >Proyectos</a
+            >
+            <a href="#skills" class="footer-link" data-i18n="skills"
+              >Habilidades</a
+            >
+            <a href="#contact" class="footer-link" data-i18n="contact"
+              >Contacto</a
+            >
           </div>
 
           <div class="footer-social">
             <a href="https://github.com/Carlox43" aria-label="GitHub"
               ><i class="fab fa-github"></i
             ></a>
-            <a href="https://www.linkedin.com/in/carlos-jos%C3%A9-salazar-%C3%A1vila-509a692b1/" aria-label="LinkedIn"
+            <a
+              href="https://www.linkedin.com/in/carlos-jos%C3%A9-salazar-%C3%A1vila-509a692b1/"
+              aria-label="LinkedIn"
               ><i class="fab fa-linkedin"></i
             ></a>
           </div>
 
-          <p class="copyright">
+          <p class="copyright" data-i18n="copyright">
             © 2025 PortfolioDev. Todos los derechos reservados.
           </p>
         </div>
@@ -712,226 +761,12 @@
     <a href="#home" class="back-to-top">
       <i class="fas fa-arrow-up"></i>
     </a>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script id="app-script">
-      // Loader
-      window.addEventListener("load", () => {
-        setTimeout(() => {
-          document.querySelector(".loader-container").classList.add("fade-out");
-        }, 1000);
-      });
-
-      // Inicializar AOS (Animate on scroll)
-      AOS.init({
-        duration: 800,
-        easing: "ease-in-out",
-        once: true,
-        mirror: false,
-      });
-
-      // Partículas en el hero
-      document.addEventListener("DOMContentLoaded", function () {
-        if (typeof particlesJS !== "undefined") {
-          particlesJS("particles-js", {
-            particles: {
-              number: { value: 80, density: { enable: true, value_area: 800 } },
-              color: { value: "#1abc9c" },
-              shape: {
-                type: "circle",
-                stroke: { width: 0, color: "#000000" },
-              },
-              opacity: {
-                value: 0.5,
-                random: true,
-                anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false },
-              },
-              size: {
-                value: 3,
-                random: true,
-                anim: { enable: true, speed: 2, size_min: 0.1, sync: false },
-              },
-              line_linked: {
-                enable: true,
-                distance: 150,
-                color: "#9b59b6",
-                opacity: 0.4,
-                width: 1,
-              },
-              move: {
-                enable: true,
-                speed: 2,
-                direction: "none",
-                random: false,
-                straight: false,
-                out_mode: "out",
-                bounce: false,
-              },
-            },
-            interactivity: {
-              detect_on: "canvas",
-              events: {
-                onhover: { enable: true, mode: "grab" },
-                onclick: { enable: true, mode: "push" },
-                resize: true,
-              },
-              modes: {
-                grab: { distance: 140, line_linked: { opacity: 1 } },
-                push: { particles_nb: 4 },
-              },
-            },
-          });
-        }
-      });
-
-      // Navegación fija al hacer scroll
-      window.addEventListener("scroll", () => {
-        const navbar = document.querySelector(".navbar");
-        const backToTop = document.querySelector(".back-to-top");
-
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-          backToTop.classList.add("active");
-        } else {
-          navbar.classList.remove("scrolled");
-          backToTop.classList.remove("active");
-        }
-      });
-
-      // Animación de las barras de progreso de habilidades
-      const animateProgressBars = () => {
-        const progressBars = document.querySelectorAll(".progress");
-        progressBars.forEach((bar) => {
-          const width = bar.getAttribute("data-width");
-          bar.style.width = `${width}%`;
-        });
-      };
-
-      // Observador de intersección para activar las barras de progreso cuando sean visibles
-      const skillsSection = document.querySelector("#skills");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              animateProgressBars();
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-
-      observer.observe(skillsSection);
-
-      // Alternar entre temas
-      const themeToggle = document.querySelector(".theme-toggle");
-      themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("alt-theme");
-      });
-
-      // Manejar menú hamburguesa
-      const hamburger = document.querySelector(".hamburger");
-      const navLinks = document.querySelector(".nav-links");
-
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-
-        // Cambiar icono de hamburguesa
-        const icon = hamburger.querySelector("i");
-        if (navLinks.classList.contains("active")) {
-          icon.classList.remove("fa-bars");
-          icon.classList.add("fa-times");
-        } else {
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
-        }
-      });
-
-      // Cerrar el menú al hacer clic en un enlace
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("active");
-          const icon = hamburger.querySelector("i");
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
-        });
-      });
-
-      // Manejar el envío del formulario de contacto
-      const contactForm = document.getElementById("contactForm");
-      if (contactForm) {
-        // Recuperar datos guardados en LocalStorage si existen
-        const savedName = localStorage.getItem("contact_name");
-        const savedEmail = localStorage.getItem("contact_email");
-        const savedSubject = localStorage.getItem("contact_subject");
-        const savedMessage = localStorage.getItem("contact_message");
-
-        if (savedName) document.getElementById("name").value = savedName;
-        if (savedEmail) document.getElementById("email").value = savedEmail;
-        if (savedSubject)
-          document.getElementById("subject").value = savedSubject;
-        if (savedMessage)
-          document.getElementById("message").value = savedMessage;
-
-        // Guardar datos en LocalStorage mientras se escribe
-        const formInputs = contactForm.querySelectorAll("input, textarea");
-        formInputs.forEach((input) => {
-          input.addEventListener("input", () => {
-            localStorage.setItem(`contact_${input.id}`, input.value);
-          });
-        });
-
-        contactForm.addEventListener("submit", (e) => {
-          e.preventDefault();
-
-          // Validación del formulario
-          const name = document.getElementById("name").value.trim();
-          const email = document.getElementById("email").value.trim();
-          const subject = document.getElementById("subject").value.trim();
-          const message = document.getElementById("message").value.trim();
-
-          if (!name || !email || !subject || !message) {
-            alert("Por favor, complete todos los campos del formulario.");
-            return;
-          }
-
-          // Validar formato de email
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email)) {
-            alert("Por favor, ingrese un email válido.");
-            return;
-          }
-
-          // Mostrar mensaje de éxito (en una aplicación real, esto enviaría datos a un API)
-          alert("¡Mensaje enviado con éxito! Gracias por contactarme.");
-
-          // Limpiar formulario y LocalStorage
-          contactForm.reset();
-          localStorage.removeItem("contact_name");
-          localStorage.removeItem("contact_email");
-          localStorage.removeItem("contact_subject");
-          localStorage.removeItem("contact_message");
-        });
-      }
-
-      // Desplazamiento suave para los enlaces de navegación
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          const targetId = this.getAttribute("href");
-          if (targetId === "#") return;
-
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 70,
-              behavior: "smooth",
-            });
-          }
-        });
-      });
-    </script>
+    <script src="./src/translation.js"></script>
+    <script src="./src/main.js"></script>
+    <script src="./src/form.js"></script>
   </body>
 </html>
