@@ -1,29 +1,31 @@
-// Loader
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.querySelector(".loader-container").classList.add("fade-out");
-    }, 1000);
-});
+import { translations } from "./translations.js";
+import "./form.js";
 
-// Inicializar AOS (Animate on scroll)
-AOS.init({
-    duration: 800,
-    easing: "ease-in-out",
-    once: true,
-    mirror: false,
-});
+document.addEventListener("DOMContentLoaded", () => {
+    /* ------------------ LOADER ------------------ */
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            document.querySelector(".loader-container")?.classList.add("fade-out");
+        }, 1000);
+    });
 
-// Partículas en el hero
-document.addEventListener("DOMContentLoaded", function () {
+    /* ------------------ AOS ------------------ */
+    if (typeof AOS !== "undefined") {
+        AOS.init({
+            duration: 800,
+            easing: "ease-in-out",
+            once: true,
+            mirror: false,
+        });
+    }
+
+    /* ------------------ PARTICLES ------------------ */
     if (typeof particlesJS !== "undefined") {
         particlesJS("particles-js", {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
                 color: { value: "#1abc9c" },
-                shape: {
-                    type: "circle",
-                    stroke: { width: 0, color: "#000000" },
-                },
+                shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
                 opacity: {
                     value: 0.5,
                     random: true,
@@ -41,15 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     opacity: 0.4,
                     width: 1,
                 },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: "none",
-                    random: false,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                },
+                move: { enable: true, speed: 2, direction: "none", out_mode: "out" },
             },
             interactivity: {
                 detect_on: "canvas",
@@ -65,142 +59,91 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         });
     }
-});
 
-// Navegación fija al hacer scroll
-window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
-    const backToTop = document.querySelector(".back-to-top");
-
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-        backToTop.classList.add("active");
-    } else {
-        navbar.classList.remove("scrolled");
-        backToTop.classList.remove("active");
-    }
-});
-
-// Animación de las barras de progreso de habilidades
-const animateProgressBars = () => {
-    const progressBars = document.querySelectorAll(".progress");
-    progressBars.forEach((bar) => {
-        const width = bar.getAttribute("data-width");
-        bar.style.width = `${width}%`;
+    /* ------------------ NAVBAR + SCROLL ------------------ */
+    window.addEventListener("scroll", () => {
+        document.querySelector(".navbar")?.classList.toggle("scrolled", window.scrollY > 50);
+        document.querySelector(".back-to-top")?.classList.toggle("active", window.scrollY > 50);
     });
-};
 
-// Observador de intersección para activar las barras de progreso cuando sean visibles
-const skillsSection = document.querySelector("#skills");
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                animateProgressBars();
-                observer.unobserve(entry.target);
-            }
+    /* ------------------ BARRAS DE HABILIDADES ------------------ */
+    const animateProgressBars = () => {
+        document.querySelectorAll(".progress")?.forEach((bar) => {
+            const width = bar.getAttribute("data-width");
+            bar.style.width = `${width}%`;
         });
-    },
-    { threshold: 0.2 }
-);
+    };
 
-observer.observe(skillsSection);
-
-
-// Manejar menú hamburguesa
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-
-    // Cambiar icono de hamburguesa
-    const icon = hamburger.querySelector("i");
-    if (navLinks.classList.contains("active")) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-times");
-    } else {
-        icon.classList.remove("fa-times");
-        icon.classList.add("fa-bars");
+    const skillsSection = document.querySelector("#skills");
+    if (skillsSection) {
+        const observer = new IntersectionObserver(
+            (entries) => entries.forEach((entry) => entry.isIntersecting && animateProgressBars()),
+            { threshold: 0.2 }
+        );
+        observer.observe(skillsSection);
     }
-});
 
-// Cerrar el menú al hacer clic en un enlace
-document.querySelectorAll(".nav-links a").forEach((link) => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
+    /* ------------------ MENÚ HAMBURGUESA ------------------ */
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger?.addEventListener("click", () => {
+        navLinks?.classList.toggle("active");
         const icon = hamburger.querySelector("i");
-        icon.classList.remove("fa-times");
-        icon.classList.add("fa-bars");
-    });
-});
-
-
-// Cambio de idioma
-const languageToggle = document.querySelector('.language-toggle');
-const languageText = document.querySelector('.language-text');
-let currentLanguage = 'es';
-
-// Función para cambiar idioma
-function changeLanguage(lang) {
-    currentLanguage = lang;
-    const texts = translations[lang];
-
-    // Actualizar textos
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (texts[key]) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = texts[key];
-            } else {
-                element.textContent = texts[key];
-            }
+        if (icon) {
+            icon.classList.toggle("fa-bars");
+            icon.classList.toggle("fa-times");
         }
     });
 
-    // Actualizar botón de idioma
-    languageText.textContent = lang === 'es' ? 'EN' : 'ES';
+    document.querySelectorAll(".nav-links a")?.forEach((link) =>
+        link.addEventListener("click", () => {
+            navLinks?.classList.remove("active");
+            const icon = hamburger.querySelector("i");
+            icon?.classList.remove("fa-times");
+            icon?.classList.add("fa-bars");
+        })
+    );
 
-    // Guardar preferencia
-    localStorage.setItem('preferredLanguage', lang);
-}
+    /* ------------------ IDIOMA ------------------ */
+    const languageToggle = document.querySelector(".language-toggle");
+    const languageText = document.querySelector(".language-text");
+    let currentLanguage = localStorage.getItem("preferredLanguage") || "es";
 
-// Toggle de idioma
-languageToggle.addEventListener('click', () => {
-    const newLang = currentLanguage === 'es' ? 'en' : 'es';
-    changeLanguage(newLang);
-});
+    function changeLanguage(lang) {
+        currentLanguage = lang;
+        const texts = translations[lang];
+        document.querySelectorAll("[data-i18n]")?.forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            if (!texts[key]) return;
+            if (["INPUT", "TEXTAREA"].includes(el.tagName)) el.placeholder = texts[key];
+            else el.textContent = texts[key];
+        });
+        languageText.textContent = lang === "es" ? "EN" : "ES";
+        localStorage.setItem("preferredLanguage", lang);
+    }
 
-// Sistema de temas mejorado
-const themeToggle = document.querySelector('.theme-toggle');
-let currentTheme = 'dark';
+    languageToggle?.addEventListener("click", () => {
+        changeLanguage(currentLanguage === "es" ? "en" : "es");
+    });
 
-// Función para cambiar tema
-function changeTheme(theme) {
-    currentTheme = theme;
-    document.body.classList.toggle('light-theme', theme === 'light');
+    changeLanguage(currentLanguage);
 
-    // Actualizar icono
-    const icon = themeToggle.querySelector('i');
-    icon.className = theme === 'dark' ? 'fas fa-adjust' : 'fas fa-sun';
+    /* ------------------ TEMA ------------------ */
+    const themeToggle = document.querySelector(".theme-toggle");
+    let currentTheme = localStorage.getItem("preferredTheme") || "dark";
 
-    // Guardar preferencia
-    localStorage.setItem('preferredTheme', theme);
-}
+    function changeTheme(theme) {
+        currentTheme = theme;
+        document.body.classList.toggle("light-theme", theme === "light");
+        const icon = themeToggle.querySelector("i");
+        icon.className = theme === "dark" ? "fas fa-adjust" : "fas fa-sun";
+        localStorage.setItem("preferredTheme", theme);
+    }
 
-// Toggle de tema mejorado
-themeToggle.addEventListener('click', () => {
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    changeTheme(newTheme);
-});
+    themeToggle?.addEventListener("click", () => {
+        changeTheme(currentTheme === "dark" ? "light" : "dark");
+    });
 
-// Cargar preferencias guardadas al iniciar
-document.addEventListener('DOMContentLoaded', function () {
-    // Cargar tema
-    const savedTheme = localStorage.getItem('preferredTheme') || 'dark';
-    changeTheme(savedTheme);
-
-    // Cargar idioma
-    const savedLang = localStorage.getItem('preferredLanguage') || 'es';
-    changeLanguage(savedLang);
+    changeTheme(currentTheme);
 });

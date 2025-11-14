@@ -1,5 +1,5 @@
 // translations.js
-const translations = {
+export const translations = {
     es: {
         // Navegación
         "about": "Sobre Mí",
