@@ -19,16 +19,18 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <!-- ELIMINADO: Archivos que causan errores 404 -->
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /> -->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /> -->
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /> -->
+    <!-- <link rel="manifest" href="/site.webmanifest" /> -->
+
     <link rel="stylesheet" href="src/reset.css" />
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <!-- Loader -->
-    <div class="loader-container">
+    <!-- Loader Simplificado -->
+    <div class="loader-container" id="loader">
       <div class="loader"></div>
     </div>
 
@@ -118,7 +120,7 @@
           >
             <div class="about-img-bg"></div>
             <img
-              src="/public/fotoweb.webp"
+              src="public/fotoweb.webp"
               alt="Foto de perfil"
               class="about-img"
             />
@@ -178,7 +180,7 @@
           <!-- Proyecto 1 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="100">
             <div class="project-img">
-              <img src="./public/proyecto8.webp" alt="Myportfolio" />
+              <img src="public/proyecto8.webp" alt="Myportfolio" />
             </div>
             <div class="project-content">
               <h3 class="project-title">MyPortfolio</h3>
@@ -208,7 +210,7 @@
           <!-- Proyecto 2 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="100">
             <div class="project-img">
-              <img src="./public/proyecto1.webp" alt="GuitarLA" />
+              <img src="public/proyecto1.webp" alt="GuitarLA" />
             </div>
             <div class="project-content">
               <h3 class="project-title">GuitarLA</h3>
@@ -238,10 +240,7 @@
           <!-- Proyecto 3 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="200">
             <div class="project-img">
-              <img
-                src="./public/proyecto2.webp"
-                alt="Calculadora de propinas"
-              />
+              <img src="public/proyecto2.webp" alt="Calculadora de propinas" />
             </div>
             <div class="project-content">
               <h3 class="project-title">Calculadora de Propinas</h3>
@@ -271,7 +270,7 @@
           <!-- Proyecto 4 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="300">
             <div class="project-img">
-              <img src="./public/proyecto3.webp" alt="Control-de-Gastos" />
+              <img src="public/proyecto3.webp" alt="Control-de-Gastos" />
             </div>
             <div class="project-content">
               <h3 class="project-title">Control de Gastos</h3>
@@ -301,7 +300,7 @@
           <!-- Proyecto 5 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="400">
             <div class="project-img">
-              <img src="./public/proyecto4.webp" alt="Paciente-veterinario" />
+              <img src="public/proyecto4.webp" alt="Paciente-veterinario" />
             </div>
             <div class="project-content">
               <h3 class="project-title">Pasciente Veterinario</h3>
@@ -331,7 +330,7 @@
           <!-- Proyecto 6 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="500">
             <div class="project-img">
-              <img src="./public/proyecto5.webp" alt="Clima-API" />
+              <img src="public/proyecto5.webp" alt="Clima-API" />
             </div>
             <div class="project-content">
               <h3 class="project-title">Clima</h3>
@@ -362,7 +361,7 @@
           <!-- Proyecto 7 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="600">
             <div class="project-img">
-              <img src="./public/proyecto6.webp" alt="CriptoApp" />
+              <img src="public/proyecto6.webp" alt="CriptoApp" />
             </div>
             <div class="project-content">
               <h3 class="project-title">CriptoApp</h3>
@@ -393,7 +392,7 @@
           <!-- Proyecto 8 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="500">
             <div class="project-img">
-              <img src="./public/proyecto7.webp" alt="Contador-de-Calorias" />
+              <img src="public/proyecto7.webp" alt="Contador-de-Calorias" />
             </div>
             <div class="project-content">
               <h3 class="project-title">Contador de Calorias</h3>
@@ -423,7 +422,7 @@
           <!-- Proyecto 9 -->
           <div class="project-card" data-aos="fade-up" data-aos-delay="500">
             <div class="project-img">
-              <img src="./public/proyecto9.webp" alt="Drinks" />
+              <img src="public/proyecto9.webp" alt="Drinks" />
             </div>
             <div class="project-content">
               <h3 class="project-title">Drinks</h3>
@@ -442,7 +441,8 @@
               </div>
               <div class="project-links">
                 <a href="https://drinks-omega.vercel.app/"
-                  ><i class="fas fa-glowe"></i>
+                  ><i class="fas fa-globe"></i>
+                  <!-- CORREGIDO: fa-glowe por fa-globe -->
                   <span data-i18n="demo">Demo</span></a
                 >
                 <a href="https://github.com/Carlox43/Drinks"
@@ -768,5 +768,38 @@
     <script src="src/translations.js"></script>
     <script src="src/main.js"></script>
     <script src="src/form.js"></script>
+
+    <!-- Script de emergencia para el loader -->
+    <script>
+      // Forzar que el loader se oculte
+      setTimeout(function () {
+        const loader = document.getElementById("loader");
+        if (loader) {
+          loader.style.display = "none";
+          loader.remove();
+        }
+      }, 2000);
+
+      // También ocultar cuando la página cargue
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const loader = document.getElementById("loader");
+          if (loader) {
+            loader.style.display = "none";
+            loader.remove();
+          }
+        }, 1000);
+      });
+
+      // Fallback máximo de 3 segundos
+      setTimeout(function () {
+        const loader = document.getElementById("loader");
+        if (loader) {
+          loader.style.display = "none";
+          loader.remove();
+        }
+        document.body.style.visibility = "visible";
+      }, 3000);
+    </script>
   </body>
 </html>
