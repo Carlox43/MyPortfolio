@@ -19,8 +19,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-    <!-- En Vite, usa rutas relativas desde la raíz -->
     <link rel="stylesheet" href="/src/reset.css" />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
@@ -58,8 +58,9 @@
     <section class="hero" id="home">
       <div class="hero-particles" id="particles-js"></div>
       <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-        <h1 data-i18n="heroTitle">
-          Hola, soy <span class="highlight">Carlos Salazar</span>
+        <h1>
+          <span data-i18n="heroTitle">Hola, soy</span>
+          <span class="highlight">Carlos Salazar</span>
         </h1>
         <p data-i18n="heroSubtitle">
           Desarrollador web Full Stack especializado en crear experiencias web
@@ -157,20 +158,41 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="projects" id="projects">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up" data-i18n="projectsTitle">
-          Mis Proyectos
-        </h2>
-        <p
-          class="section-subtitle"
-          data-aos="fade-up"
-          data-aos-delay="100"
-          data-i18n="projectsSubtitle"
-        >
-          Estos son algunos de los proyectos en los que he trabajado
-          recientemente
-        </p>
+<section class="projects" id="projects">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up" data-i18n="projectsTitle">
+      Mis Proyectos
+    </h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="projectsSubtitle">
+      Estos son algunos de los proyectos en los que he trabajado recientemente
+    </p>
+
+    <!-- Carrusel Container -->
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- Los proyectos se insertarán aquí dinámicamente -->
+      </div>
+      
+      <!-- Controles del carrusel - Estilo opción 4 -->
+      <button class="carousel-btn carousel-prev" aria-label="Proyecto anterior">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="carousel-btn carousel-next" aria-label="Siguiente proyecto">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      
+      <!-- Indicadores -->
+      <div class="carousel-indicators" id="carouselIndicators">
+        <!-- Los indicadores se generarán dinámicamente -->
+      </div>
+    </div>
+
+    <!-- Grid original (opcional) -->
+    <div class="projects-grid">
+      <!-- Tu grid actual de proyectos -->
+    </div>
+  </div>
+</section>
 
         <div class="projects-grid">
           <!-- Proyecto 1 -->
@@ -668,43 +690,40 @@
             data-aos-duration="1000"
           >
             <form id="contactForm">
-              <div class="form-group">
-                <label for="name" class="form-label" data-i18n="name"
-                  >Nombre</label
-                >
-                <input type="text" id="name" class="form-control" required />
-              </div>
+  <div class="form-group">
+    <label for="name" class="form-label" data-i18n="name">Nombre</label>
+    <input type="text" id="name" name="name" class="form-control" required />
+    <span class="error-message" id="nameError"></span>
+  </div>
 
-              <div class="form-group">
-                <label for="email" class="form-label" data-i18n="email"
-                  >Email</label
-                >
-                <input type="email" id="email" class="form-control" required />
-              </div>
+  <div class="form-group">
+    <label for="email" class="form-label" data-i18n="email">Email</label>
+    <input type="email" id="email" name="email" class="form-control" required />
+    <span class="error-message" id="emailError"></span>
+  </div>
 
-              <div class="form-group">
-                <label for="subject" class="form-label" data-i18n="subject"
-                  >Asunto</label
-                >
-                <input type="text" id="subject" class="form-control" required />
-              </div>
+  <div class="form-group">
+    <label for="subject" class="form-label" data-i18n="subject">Asunto</label>
+    <input type="text" id="subject" name="subject" class="form-control" required />
+    <span class="error-message" id="subjectError"></span>
+  </div>
 
-              <div class="form-group">
-                <label for="message" class="form-label" data-i18n="message"
-                  >Mensaje</label
-                >
-                <textarea id="message" class="form-control" required></textarea>
-              </div>
+  <div class="form-group">
+    <label for="message" class="form-label" data-i18n="message">Mensaje</label>
+    <textarea id="message" name="message" class="form-control" required></textarea>
+    <span class="error-message" id="messageError"></span>
+  </div>
 
-              <button
-                type="submit"
-                class="btn btn-primary"
-                style="width: 100%"
-                data-i18n="sendMessage"
-              >
-                Enviar Mensaje
-              </button>
-            </form>
+  <button type="submit" class="btn btn-primary" style="width: 100%" id="submitBtn" data-i18n="sendMessage">
+    Enviar Mensaje
+  </button>
+  
+  <!-- Mensajes de estado -->
+  <div id="formMessages">
+    <div class="success-message" id="successMessage"></div>
+    <div class="error-message" id="errorMessage"></div>
+  </div>
+</form>
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
 import { translations } from "./translations.js";
 import "./form.js";
+import "./carrusel.js"
+import "./email-config.js"
 
 document.addEventListener("DOMContentLoaded", () => {
     /* ------------------ LOADER ------------------ */
@@ -117,6 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const key = el.getAttribute("data-i18n");
             if (!texts[key]) return;
             if (["INPUT", "TEXTAREA"].includes(el.tagName)) el.placeholder = texts[key];
+            if (typeof updateErrorMessages !== 'undefined') {
+                updateErrorMessages(lang);
+            }
             else el.textContent = texts[key];
         });
         languageText.textContent = lang === "es" ? "EN" : "ES";
